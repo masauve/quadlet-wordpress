@@ -1,0 +1,10 @@
+[Install]
+WantedBy=default.target
+
+[Container]
+Image=docker.io/library/mysql:5.7.6
+ContainerName=quadlet-demo-mysql
+Volume=quadlet-demo-mysql.volume:/var/lib/mysql
+Network=quadlet-demo.network
+Secret=mysql-root-password-container,type=env,target=MYSQL_ROOT_PASSWORD
+#PodmanArgs=--secret=mysql-root-password-container,type=env,target=MYSQL_ROOT_PASSWORD
